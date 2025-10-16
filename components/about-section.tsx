@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function AboutSection() {
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50">
@@ -8,8 +10,13 @@ export default function AboutSection() {
           {/* Image placeholder */}
           <div className="flex justify-center">
             <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center border border-border">
-              <span className="text-muted-foreground">Professional Photo</span>
-            </div>
+  <Image
+                src="/profile_photo.jpg"
+                alt="Professional Photo"
+                fill
+                className="object-cover rounded-2xl"
+              />
+</div>
           </div>
 
           {/* Bio */}
