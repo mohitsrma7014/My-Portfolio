@@ -6,7 +6,7 @@ const experiences = [
   {
     role: "Data Scientist & Automation Developer",
     company: "SSB Engineers Pvt. Ltd.",
-    period: "Current",
+    period: "April 2024 - Current",
     description: "Building production dashboards and automation systems",
     achievements: [
       "Deployed production and quality dashboards, increasing efficiency by 40%",
