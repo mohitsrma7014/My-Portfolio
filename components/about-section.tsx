@@ -13,7 +13,7 @@ export default function AboutSection() {
   <Image
                 src="/profile_photo.jpg"
                 alt="Professional Photo"
-                fill
+                
                 className="object-cover rounded-2xl"
               />
 </div>
