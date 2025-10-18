@@ -11,7 +11,7 @@ export default function AboutSection() {
           <div className="flex justify-center">
             <div className="w-64 h-64 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center border border-border">
   <Image
-                src="/profile_photo.jpg"
+                src="/Gemini_Generated_Image_u49j8fu49j8fu49j.jpeg"
                 alt="Professional Photo"
                 
                 className="object-cover rounded-2xl"
