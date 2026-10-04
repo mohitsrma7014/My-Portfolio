@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { ArrowUpRight, Sparkles } from "lucide-react";
-import { PROJECTS, type ProjectCat } from "@/lib/profile";
+import Link from "next/link";
+import { PROJECTS, projectSlug, type ProjectCat } from "@/lib/profile";
 import { Reveal, SectionHeading, onSpotlightMove } from "@/components/ui/primitives";
 import { GithubIcon } from "@/components/ui/BrandIcons";
 
@@ -54,7 +55,9 @@ export function Projects() {
                     </span>
                   )}
                 </div>
-                <h3 className="mt-4 font-display text-2xl font-semibold leading-tight">{p.title}</h3>
+                <h3 className="mt-4 font-display text-2xl font-semibold leading-tight">
+                  <Link href={`/projects/${projectSlug(p)}`} className="hover:text-accent">{p.title}</Link>
+                </h3>
                 {p.badge && <p className="mt-2 inline-block w-fit rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 text-[11px] text-accent">{p.badge}</p>}
                 <p className="mt-3 text-sm leading-relaxed text-muted">{p.summary}</p>
                 <ul className="mt-4 flex-1 space-y-1.5">
@@ -70,8 +73,10 @@ export function Projects() {
                     <span key={t} className="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10.5px] text-muted">{t}</span>
                   ))}
                 </div>
-                {(p.live || p.code) && (
-                  <div className="mt-5 flex gap-2 border-t border-line pt-5">
+                <div className="mt-5 flex flex-wrap gap-2 border-t border-line pt-5">
+                  <Link href={`/projects/${projectSlug(p)}`} className="inline-flex items-center gap-1.5 rounded-full border border-line px-4 py-2 text-xs hover:border-accent hover:text-accent">
+                    Case study <ArrowUpRight className="h-3.5 w-3.5" />
+                  </Link>
                     {p.live && (
                       <a href={p.live} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-xs font-semibold text-bg">
                         Live site <ArrowUpRight className="h-3.5 w-3.5" />
@@ -82,8 +87,7 @@ export function Projects() {
                         <GithubIcon className="h-3.5 w-3.5" /> Code
                       </a>
                     )}
-                  </div>
-                )}
+                </div>
               </div>
             </Reveal>
           ))}

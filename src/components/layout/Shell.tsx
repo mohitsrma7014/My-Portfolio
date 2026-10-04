@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import Lenis from "lenis";
 import { Command, CornerDownLeft, Download, Menu, Search, X } from "lucide-react";
@@ -64,7 +66,10 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
   const scrollTo = useCallback((id: string) => {
     const el = document.getElementById(id);
-    if (!el) return;
+    if (!el) {
+      if (id === "top") window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     if (lenisRef.current) lenisRef.current.scrollTo(el, { offset: -80 });
     else el.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -83,6 +88,9 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
 export function Navbar() {
   const { open, scrollTo } = useShell();
+  const pathname = usePathname();
+  const router = useRouter();
+  const onHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
   const [active, setActive] = useState("");
@@ -103,11 +111,12 @@ export function Navbar() {
       window.removeEventListener("scroll", onScroll);
       io.disconnect();
     };
-  }, []);
+  }, [onHome]);
 
   const go = (id: string) => {
     setMenu(false);
-    scrollTo(id);
+    if (onHome) scrollTo(id);
+    else router.push(id === "top" ? "/" : `/#${id}`);
   };
 
   return (
@@ -117,22 +126,22 @@ export function Navbar() {
           scrolled || menu ? "glass shadow-[0_10px_40px_-20px_rgba(0,0,0,0.8)]" : "border border-transparent"
         }`}
       >
-        <a href="#top" onClick={(e) => { e.preventDefault(); go("top"); }} className="flex items-center gap-2.5" aria-label="Back to top">
+        <Link href="/" onClick={(e) => { if (onHome) { e.preventDefault(); go("top"); } }} className="flex items-center gap-2.5" aria-label={`${PROFILE.name} — home`}>
           <Logo />
           <span className="font-display text-lg font-semibold tracking-tight">
             mohit<span className="text-accent">.</span>sharma
           </span>
-        </a>
+        </Link>
         <ul className="hidden items-center gap-1 lg:flex">
           {NAV.map((n) => (
             <li key={n.id}>
               <a
-                href={`#${n.id}`}
+                href={`/#${n.id}`}
                 onClick={(e) => { e.preventDefault(); go(n.id); }}
-                className={`relative rounded-full px-3.5 py-2 text-sm transition-colors ${active === n.id ? "text-text" : "text-muted hover:text-text"}`}
+                className={`relative rounded-full px-3.5 py-2 text-sm transition-colors ${onHome && active === n.id ? "text-text" : "text-muted hover:text-text"}`}
               >
                 {n.label}
-                {active === n.id && <span className="absolute inset-x-3.5 -bottom-0.5 h-px bg-accent" />}
+                {onHome && active === n.id && <span className="absolute inset-x-3.5 -bottom-0.5 h-px bg-accent" />}
               </a>
             </li>
           ))}
@@ -145,13 +154,12 @@ export function Navbar() {
           >
             <Command className="h-3 w-3" /> K
           </button>
-          <a
-            href={PROFILE.resume}
-            download
+          <Link
+            href="/resume"
             className="hidden items-center gap-2 rounded-full bg-text px-4 py-2 text-sm font-medium text-bg transition-colors hover:bg-accent sm:inline-flex"
           >
             <Download className="h-4 w-4" /> Résumé
-          </a>
+          </Link>
           <button onClick={() => setMenu((m) => !m)} className="rounded-full p-2 lg:hidden" aria-label={menu ? "Close menu" : "Open menu"} aria-expanded={menu}>
             {menu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -169,9 +177,9 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <a href={PROFILE.resume} download className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-bg">
-            <Download className="h-4 w-4" /> Download résumé
-          </a>
+          <Link href="/resume" onClick={() => setMenu(false)} className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-bg">
+            <Download className="h-4 w-4" /> Résumé
+          </Link>
         </div>
       )}
     </header>

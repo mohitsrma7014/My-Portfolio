@@ -10,7 +10,7 @@ export const PROFILE = {
     "Self-driven Machine Learning Engineer and Data Scientist with hands-on experience building AI-powered systems, NLP chatbots and intelligent dashboards. I automate workflows, deploy ML models and integrate LLMs with business applications — with a keen focus on solving real-world problems using data.",
   location: "Alwar, Rajasthan, India",
   availability: "Open to remote work & relocation",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://my-portfolio-nine-eosin-50.vercel.app").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://mohitsrma.vercel.app").replace(/\/$/, ""),
   email: "mohitsrma7014@gmail.com",
   phone: "+91 70140 28949",
   phoneHref: "tel:+917014028949",
@@ -99,6 +99,8 @@ export type ProjectCat = "AI & ML" | "Data & Dashboards" | "Web";
 
 export type Project = {
   title: string;
+  /** Long-form description for the project's own page. */
+  story?: string;
   cat: ProjectCat;
   summary: string;
   points: string[];
@@ -112,6 +114,7 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     title: "Multi-Document AI Chatbot",
+    story: "Teams often need answers that are spread across many PDFs, manuals and reports. I built a chatbot that indexes multiple documents into vector embeddings with FAISS, retrieves the most relevant passages for each question and asks an OpenAI model to answer using only that context. Conversation history is kept so follow-up questions work naturally, giving domain-specific Q&A over private documents without fine-tuning a model.",
     cat: "AI & ML",
     summary: "Ask questions across many documents at once — answers grounded in your files with semantic search.",
     points: ["Embeddings + FAISS vector search across multiple documents", "Context preserved across follow-up questions", "Domain-specific Q&A over private data"],
@@ -120,6 +123,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "AI Stock Sentiment Recommender",
+    story: "Market-moving news arrives faster than anyone can read it. This Django application pulls the latest headlines for a stock from NewsAPI, scores their sentiment with TextBlob, combines the result with financial market data and turns it into a simple, real-time recommendation with a sentiment score that users can act on.",
     cat: "AI & ML",
     summary: "Real-time trading insights from news sentiment combined with financial market data.",
     points: ["News sentiment scoring with NLP", "Financial API integration", "Real-time sentiment scores and trading suggestions"],
@@ -129,6 +133,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Adaptive MCQ Testing System",
+    story: "Fixed tests are too easy for strong students and too hard for beginners. As a mentor for a Smart India Hackathon finalist team, I helped design an adaptive test that changes question difficulty in real time based on each answer, and an ML model that predicts a student's skill level. A custom scoring algorithm improved test reliability by 30%.",
     cat: "AI & ML",
     badge: "Smart India Hackathon Finalist (Mentor)",
     summary: "A test that adapts its difficulty in real time and predicts each student's skill level.",
@@ -138,6 +143,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Manufacturing Traceability & Quality Dashboards",
+    story: "At SSB Engineers I build the systems the shop floor runs on: real-time part traceability from raw material to dispatch, production and quality dashboards for supervisors and management, and statistical process control (SPC) charts with anomaly detection. Traceability cut compliance errors by 60%, and the dashboards improved efficiency by 40%.",
     cat: "Data & Dashboards",
     summary: "Production, quality and traceability systems running on a real shop floor.",
     points: ["Real-time part traceability — compliance errors down 60%", "Production & quality dashboards — efficiency up 40%", "SPC charts and anomaly detection for quality monitoring"],
@@ -147,6 +153,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Employee Analytics Dashboard",
+    story: "HR reports used to be compiled by hand from attendance and payroll data every month. I built a Django + MySQL dashboard that tracks attendance, salary and KPIs from internal data and generates the reports automatically — cutting manual reporting effort by 70%.",
     cat: "Data & Dashboards",
     summary: "Attendance, salary and KPI tracking with automated HR reports.",
     points: ["Automated HR reporting — 70% less manual effort", "Attendance, payroll and KPI views from internal data"],
@@ -154,6 +161,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "NLP Database Assistant",
+    story: "Not everyone can write SQL, but everyone has questions about the data. This assistant translates plain-English questions into database queries using NLP and LLMs, runs them safely and returns the answer — giving teams internal insights without waiting for an analyst.",
     cat: "AI & ML",
     summary: "Ask the company database questions in plain English and get instant insights.",
     points: ["Natural-language to SQL querying", "Internal insights without writing code"],
@@ -161,6 +169,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Nexvorta — Company Website",
+    story: "The website for my own technology company. A custom WebGL shader renders thousands of particles that morph into a different shape for each industry; visitors can re-tune the whole site to their industry, generate an instant solution blueprint and estimate ROI. It ships with full technical SEO: structured data, generated social images and 20+ landing pages.",
     cat: "Web",
     summary: "My company's site: a WebGL particle hero that morphs per industry, an instant solution blueprint builder and full SEO.",
     points: ["Three.js shader particles with morphing shapes", "Interactive Solution Builder & ROI calculator", "JSON-LD, OG images, 20+ SEO landing pages"],
@@ -170,6 +179,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Jeet Autotech",
+    story: "A fast, responsive website for a precision automotive-components manufacturer, presenting its products, capabilities and quality credentials to OEM buyers. Built with Next.js and Tailwind CSS and deployed on Vercel.",
     cat: "Web",
     summary: "Website for a precision automotive-components manufacturer.",
     points: ["Product & capability showcase", "Responsive, fast, deployed on Vercel"],
@@ -179,6 +189,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Bexor",
+    story: "A marketing website for a company offering custom web applications, ERP systems, data analytics, API integration and machine-learning solutions to manufacturers. Built with Next.js, TypeScript and Tailwind CSS.",
     cat: "Web",
     summary: "Marketing site for custom web apps, ERP and ML solutions for manufacturing.",
     points: ["Service pages for ERP, analytics, APIs and ML", "Modern responsive UI"],
@@ -188,6 +199,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "House Price Prediction",
+    story: "A classic regression problem done properly: exploratory data analysis on the Kaggle housing dataset, feature selection and engineering, then a comparison of linear models and XGBoost evaluated with R² and MAE to find the most accurate, explainable model.",
     cat: "AI & ML",
     summary: "Regression models predicting house prices from the Kaggle housing dataset.",
     points: ["EDA and feature selection", "Evaluated with R² and MAE", "Compared linear models and XGBoost"],
@@ -251,3 +263,8 @@ export const CERTIFICATIONS = [
   { title: "100 Days of Code: Python Pro Bootcamp", org: "Udemy", year: "2024" },
   { title: "Machine Learning with Hands-on Projects", org: "InternPi", year: "2023" },
 ];
+
+export const slugify = (t: string) =>
+  t.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+export const projectSlug = (p: Project) => slugify(p.title);

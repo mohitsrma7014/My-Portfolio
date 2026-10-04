@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight, ArrowUp, Check, Mail, MessageCircle, Phone, Rocket, Terminal } from "lucide-react";
 import { PROFILE } from "@/lib/profile";
@@ -122,7 +123,7 @@ export function Contact() {
                 key={c.label}
                 href={c.href}
                 target={c.href.startsWith("http") ? "_blank" : undefined}
-                rel="noopener noreferrer"
+                rel={c.label === "LinkedIn" || c.label === "GitHub" ? "me noopener noreferrer" : "noopener noreferrer"}
                 className="group flex items-center gap-4 rounded-2xl border border-line bg-surface p-4 transition-colors hover:border-accent"
               >
                 <span className="grid h-11 w-11 place-items-center rounded-xl border border-line text-accent">
@@ -157,7 +158,9 @@ export function Footer() {
       <div className="border-t border-line">
         <div className="container-x flex flex-col gap-4 py-6 font-mono text-[11px] text-muted sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} {PROFILE.name} · {PROFILE.location}</span>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
+            <Link href="/projects" className="hover:text-accent">projects</Link>
+            <Link href="/resume" className="hover:text-accent">résumé</Link>
             <button onClick={() => open("terminal")} className="inline-flex items-center gap-1.5 hover:text-accent">
               <Terminal className="h-3.5 w-3.5" /> terminal
             </button>

@@ -1,0 +1,20 @@
+# Mohit Sharma
+
+> Mohit Sharma is a Data Scientist and Machine Learning Engineer from Alwar, Rajasthan, India. He builds AI assistants, LLM/RAG chatbots, ML models, production dashboards and automation with Python, Django, SQL and LLMs. Data Scientist & Automation Developer at SSB Engineers Pvt. Ltd. (since Apr 2024) and founder of Nexvorta. Open to remote roles and relocation.
+
+Contact: mohitsrma7014@gmail.com · +91 70140 28949 · https://www.linkedin.com/in/mohitsrma · https://github.com/mohitsrma7014
+
+## Pages
+- [Portfolio home](https://mohitsrma.vercel.app/): about, experience, projects, skills, contact
+- [Résumé](https://mohitsrma.vercel.app/resume): full résumé as HTML, with a PDF download
+- [Projects](https://mohitsrma.vercel.app/projects): case studies
+
+## Experience
+- Founder, Nexvorta (2026–present)
+- Data Scientist & Automation Developer, SSB Engineers Pvt. Ltd. (Apr 2024–present): production/quality dashboards (+40% efficiency), real-time traceability (−60% compliance errors), NLP database assistant, automated HR reporting
+- AI/Backend Developer (GPT Integrations), Auring Technologies (Jan–Apr 2024)
+- Data Science Intern, National Engineering Industries Ltd. (NBC, CK Birla Group) (Sep–Nov 2023)
+
+## Education
+- B.Tech, Mechanical Engineering, Modern Institute of Technology and Research Centre (2024)
+- Minor in Artificial Intelligence, IIT Ropar (2024)

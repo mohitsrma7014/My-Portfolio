@@ -48,11 +48,16 @@ export function Hero() {
             <span className="relative inline-block h-2 w-2 rounded-full bg-accent text-accent pulse-dot" />
             {PROFILE.availability}
           </p>
-          <h1 className="font-display text-5xl font-semibold leading-[1] tracking-tight sm:text-7xl lg:text-8xl">
-            Hi, I&apos;m <span className="text-gradient">{PROFILE.firstName}</span>
-            <span className="text-accent">.</span>
+          <h1 className="font-display font-semibold tracking-tight">
+            <span className="block text-5xl leading-[1] sm:text-7xl lg:text-8xl">
+              Hi, I&apos;m <span className="text-gradient">{PROFILE.firstName}</span>
+              <span className="text-accent">.</span>
+            </span>
+            <span className="mt-5 block text-2xl font-medium text-text/90 sm:text-3xl">
+              <span className="sr-only">{PROFILE.name} — </span>
+              {PROFILE.role}
+            </span>
           </h1>
-          <p className="mt-5 font-display text-2xl font-medium text-text/90 sm:text-3xl">{PROFILE.role}</p>
           <p className="mt-4 text-lg text-muted sm:text-xl">
             I build{" "}
             <span key={cur.word} className="inline-block font-medium animate-[wordIn_0.6s_cubic-bezier(.2,.7,.2,1)]" style={{ color: cur.color }}>
@@ -79,10 +84,10 @@ export function Hero() {
               <Download className="h-4 w-4" /> Download résumé
             </a>
             <div className="ml-1 flex items-center gap-1">
-              <a href={PROFILE.social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="rounded-full p-2.5 text-muted transition-colors hover:text-accent">
+              <a href={PROFILE.social.github} target="_blank" rel="me noopener noreferrer" aria-label="Mohit Sharma on GitHub" className="rounded-full p-2.5 text-muted transition-colors hover:text-accent">
                 <GithubIcon />
               </a>
-              <a href={PROFILE.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="rounded-full p-2.5 text-muted transition-colors hover:text-accent">
+              <a href={PROFILE.social.linkedin} target="_blank" rel="me noopener noreferrer" aria-label="Mohit Sharma on LinkedIn" className="rounded-full p-2.5 text-muted transition-colors hover:text-accent">
                 <LinkedinIcon />
               </a>
             </div>
