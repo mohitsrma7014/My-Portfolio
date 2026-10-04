@@ -1,4 +1,4 @@
-// Everything about Mohit in one place. Edit here — every section reads from this file.
+﻿// Everything about Mohit in one place. Edit here — every section reads from this file.
 
 export const PROFILE = {
   name: "Mohit Sharma",
@@ -10,7 +10,7 @@ export const PROFILE = {
     "Self-driven Machine Learning Engineer and Data Scientist with hands-on experience building AI-powered systems, NLP chatbots and intelligent dashboards. I automate workflows, deploy ML models and integrate LLMs with business applications — with a keen focus on solving real-world problems using data.",
   location: "Alwar, Rajasthan, India",
   availability: "Open to remote work & relocation",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://mohitsharma.vercel.app").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://my-portfolio-nine-eosin-50.vercel.app").replace(/\/$/, ""),
   email: "mohitsrma7014@gmail.com",
   phone: "+91 70140 28949",
   phoneHref: "tel:+917014028949",
